@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyTmdbApps</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="welcome_to_list_movie_apps">Welcome to list movie apps</string>
+</resources>
