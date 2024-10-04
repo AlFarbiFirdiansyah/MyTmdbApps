@@ -1,24 +1,3 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
-
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
-
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
 -ignorewarnings
 -keep class * {
     public private *;
@@ -91,25 +70,10 @@
 -keep,includedescriptorclasses class net.sqlcipher.** { *; }
 -keep,includedescriptorclasses interface net.sqlcipher.** { *; }
 
--keep class com.frbiw.mytmdbapps.** { *; }
--keep class androidx.** { *; }
--dontwarn android.support.**
+-keep class com.frbiw.mytmdbapps.**{*;}
 
 -dontwarn org.conscrypt.**
 -dontwarn org.bouncycastle.**
 -dontwarn org.openjsse.**
 
 -dontwarn org.bouncycastle.jsse.BCSSLParameters
--keepattributes *Annotation*
--keepclassmembers class **.R$* {
-   public static <fields>;
-}
-# Keep sealed classes and their subtypes
--keep class com.frbiw.mytmdbapps.** { *; }
--keep class kotlin.Metadata { *; }
--keepattributes *Annotation*
-
-# Keep specific methods and fields that are necessary
--keepclassmembers class com.frbiw.mytmdbapps.** {
-    *;
-}
