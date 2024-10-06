@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black"
     tools:context=".ui.detail.DetailFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -56,7 +55,8 @@
                     android:scaleType="centerCrop"
                     android:visibility="visible"
                     tools:src="@tools:sample/avatars"
-                    tools:visibility="visible" />
+                    tools:visibility="visible"
+                    android:contentDescription="@string/img_detail" />
             </com.google.android.material.card.MaterialCardView>
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cv_raters_detail"
@@ -84,18 +84,19 @@
                         android:visibility="visible"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerCrop"
-                        tools:src="@drawable/baseline_calendar_today_24" />
+                        tools:src="@drawable/baseline_calendar_today_24"
+                        android:contentDescription="@string/ic_date" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Release"
+                        android:text="@string/release"
                         android:textColor="@color/white"
                         android:layout_gravity="center"/>
                     <TextView
                         android:id="@+id/tv_release"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2014"
+                        android:text=""
                         android:textColor="@color/white"
                         android:layout_gravity="center"/>
                 </LinearLayout>
@@ -126,18 +127,19 @@
                         android:visibility="visible"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerCrop"
-                        tools:src="@drawable/ic_rating" />
+                        tools:src="@drawable/ic_rating"
+                        android:contentDescription="@string/ic_rating" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rating"
+                        android:text="@string/rating"
                         android:textColor="@color/white"
                         android:layout_gravity="center"/>
                     <TextView
                         android:id="@+id/tv_rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="4.5"
+                        android:text=""
                         android:textColor="@color/white"
                         android:layout_gravity="center"/>
                 </LinearLayout>
@@ -161,14 +163,15 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:src="@drawable/baseline_favorite_border_24"
-                    app:tint="@color/red"/>
+                    app:tint="@color/red"
+                    android:contentDescription="@string/ic_favorite" />
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/tv_name_detail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Avanger: Infinity War"
+                android:text=""
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:maxLines="2"
@@ -182,7 +185,7 @@
                 android:id="@+id/tv_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Descriptions"
+                android:text="@string/descriptions"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:maxLines="2"

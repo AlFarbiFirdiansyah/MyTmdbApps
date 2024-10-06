@@ -40,7 +40,7 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDetailBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
@@ -80,7 +80,7 @@ class DetailFragment : Fragment() {
                             binding.rvMovieTrailer.visibility = View.VISIBLE
                             binding.pbMovieTrailer.visibility = View.GONE
                             it.data?.let { movieTrailers ->
-                                movieTrailerAdapter.setItems(movieTrailers)
+                                movieTrailerAdapter.differ.submitList(movieTrailers)
                             }
                         }
                         is Resource.Loading -> {
@@ -131,7 +131,7 @@ class DetailFragment : Fragment() {
 
     private fun setupUI(movie: Movie) {
         binding.apply {
-            Glide.with(requireContext()).load(movie?.img).into(ivMoviePoster)
+            Glide.with(requireContext()).load(movie.img).into(ivMoviePoster)
             tvRelease.text = movie.releaseDate?.substring(0,4)
             tvRating.text = movie.voteAverage.toString()
             tvNameDetail.text = movie.name

@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
@@ -74,7 +74,7 @@ class HomeFragment : Fragment() {
                     binding.rvMovie.visibility = View.VISIBLE
                     binding.pbHome.visibility = View.GONE
                     it.data?.let { movie ->
-                        movieAdapter.setItems(movie)
+                        movieAdapter.differ.submitList(movie)
                     }
                 }
                 is Resource.Error ->{

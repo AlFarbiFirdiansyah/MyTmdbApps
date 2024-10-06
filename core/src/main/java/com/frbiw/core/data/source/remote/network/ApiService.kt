@@ -7,15 +7,15 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-    @GET("discover/movie?api_key=$api_key")
+    @GET("discover/movie?api_key=$API_KEY")
     suspend fun getMovieDiscover(): GetMovieResponse
 
-    @GET("movie/{id}/videos?api_key=$api_key")
+    @GET("movie/{id}/videos?api_key=$API_KEY")
     suspend fun getMovieTrailerById(
         @Path("id") id:Int
     ):GetMovieTrailerByIdResponse
 
     companion object {
-        private const val api_key = "3a1e854a67588dbb0dbf1cc6b6b7acac"
+        private const val API_KEY = "3a1e854a67588dbb0dbf1cc6b6b7acac"
     }
 }

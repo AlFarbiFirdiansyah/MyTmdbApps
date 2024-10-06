@@ -17,7 +17,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                 })
             }
             is ApiResponse.Error ->{
-                emit(Resource.Error(apiResponse.errorMessage.toString()))
+                emit(Resource.Error(apiResponse.errorMessage))
             }
             else ->{}
         }

@@ -2,4 +2,12 @@
     <string name="app_name">MyTmdbApps</string>
     <string name="title_favorite">Favorite</string>
     <string name="welcome_to_list_movie_apps">Welcome to list movie apps</string>
+    <string name="img_detail">IMG_DETAIL</string>
+    <string name="ic_date">IC_DATE</string>
+    <string name="ic_rating">IC_RATING</string>
+    <string name="ic_favorite">IC_FAVORITE</string>
+    <string name="release">Release</string>
+    <string name="rating">Rating</string>
+    <string name="descriptions">Descriptions</string>
+    <string name="ic_favorite_home">IC_FAVORITE_HOME</string>
 </resources>

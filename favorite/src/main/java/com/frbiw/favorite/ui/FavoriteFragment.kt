@@ -55,7 +55,7 @@ class FavoriteFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFavoriteBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
@@ -69,7 +69,7 @@ class FavoriteFragment : Fragment() {
 
     private fun observeDataFavorite() {
         viewModel.getAllMovieFavorite.observe(viewLifecycleOwner){
-            favoriteAdapter.setItems(it)
+            favoriteAdapter.differ.submitList(it)
             if (it.isNotEmpty()){
                 binding.rvFav.visibility = View.VISIBLE
             }else{

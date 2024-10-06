@@ -7,6 +7,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 
-class FavoriteViewModel @Inject constructor(private val movieUseCase: MovieUseCase): ViewModel() {
+class FavoriteViewModel @Inject constructor( movieUseCase: MovieUseCase): ViewModel() {
     val getAllMovieFavorite = movieUseCase.getAllMovieFavorite().asLiveData()
 }

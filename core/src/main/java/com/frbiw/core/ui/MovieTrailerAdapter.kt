@@ -3,53 +3,58 @@ package com.frbiw.core.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.WebChromeClient
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.frbiw.core.databinding.ItemTrailerMovieBinding
 import com.frbiw.core.domain.model.MovieTrailer
 import com.frbiw.core.utils.commonYoutubeUrl
 
-class MovieTrailerAdapter(private val itemClick: (MovieTrailer) -> Unit) :
+class MovieTrailerAdapter(private val onItemClickListener: (MovieTrailer) -> Unit) :
     RecyclerView.Adapter<MovieTrailerAdapter.MovieTrailerViewHolder>() {
 
+    val differ = AsyncListDiffer(this, DIFF_CALLBACK)
 
-    private var items: MutableList<MovieTrailer> = mutableListOf()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieTrailerViewHolder =
+        MovieTrailerViewHolder(
+            ItemTrailerMovieBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
 
-    fun setItems(items: List<MovieTrailer>) {
-        this.items.clear()
-        this.items.addAll(items)
-        notifyDataSetChanged()
-    }
+    override fun getItemCount(): Int = differ.currentList.size
 
+    override fun onBindViewHolder(holder: MovieTrailerViewHolder, position: Int) =
+        holder.bind(differ.currentList[position])
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieTrailerViewHolder {
-        val binding = ItemTrailerMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MovieTrailerViewHolder(binding, itemClick)
-    }
-
-    override fun onBindViewHolder(holder: MovieTrailerViewHolder, position: Int) {
-        holder.bindView(items[position])
-    }
-
-    override fun getItemCount(): Int = items.size
-
-
-    class MovieTrailerViewHolder(
-        private val binding: ItemTrailerMovieBinding,
-        val itemClick: (MovieTrailer) -> Unit
+    inner class MovieTrailerViewHolder(
+        private val binding: ItemTrailerMovieBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bindView(item: MovieTrailer) {
-            with(item) {
-                itemView.setOnClickListener { itemClick(this) }
-                binding.wvTrailer.apply {
+        fun bind(result: MovieTrailer) {
+            binding.apply {
+                wvTrailer.apply {
                     settings.javaScriptEnabled = true
                     settings.loadWithOverviewMode = true
                     settings.useWideViewPort = true
                     webChromeClient = WebChromeClient()
-                    loadUrl(key.commonYoutubeUrl())
+                    loadUrl(result.key.commonYoutubeUrl())
+                }
+                root.setOnClickListener {
+                    onItemClickListener(result)
                 }
             }
         }
     }
 
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieTrailer>() {
+            override fun areItemsTheSame(oldItem: MovieTrailer, newItem: MovieTrailer): Boolean =
+                oldItem == newItem
+
+            override fun areContentsTheSame(oldItem: MovieTrailer, newItem: MovieTrailer): Boolean =
+                oldItem == newItem
+        }
+    }
 }
