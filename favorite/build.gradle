@@ -3,7 +3,9 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android'
     id 'kotlin-parcelize'
-    id 'kotlin-kapt'
+//    id 'kotlin-kapt'
+    //migrasi ke KSP
+    id 'com.google.devtools.ksp'
 }
 apply from: '../shared_dependencies.gradle'
 android {

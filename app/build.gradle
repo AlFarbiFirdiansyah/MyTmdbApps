@@ -4,7 +4,9 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
-    id 'kotlin-kapt'
+//    id 'kotlin-kapt'
+    //migrasi ke KSP
+    id 'com.google.devtools.ksp'
 }
 apply from: '../shared_dependencies.gradle'
 android {
