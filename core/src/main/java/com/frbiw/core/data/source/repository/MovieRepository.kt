@@ -1,6 +1,6 @@
 package com.frbiw.core.data.source.repository
 
-import android.provider.ContactsContract.Data
+
 import com.frbiw.core.data.source.NetworkBoundResource
 import com.frbiw.core.data.source.Resource
 import com.frbiw.core.data.source.local.LocalDataSource

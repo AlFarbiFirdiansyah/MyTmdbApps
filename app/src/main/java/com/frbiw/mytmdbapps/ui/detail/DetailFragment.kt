@@ -1,6 +1,6 @@
 package com.frbiw.mytmdbapps.ui.detail
 
-import androidx.lifecycle.ViewModelProvider
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,13 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.frbiw.core.data.source.Resource
 import com.frbiw.core.domain.model.Movie
-import com.frbiw.core.domain.model.MovieTrailer
 import com.frbiw.core.ui.MovieTrailerAdapter
 import com.frbiw.mytmdbapps.R
 import com.frbiw.mytmdbapps.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.observeOn
 import kotlinx.coroutines.launch
 import kotlin.properties.Delegates
 

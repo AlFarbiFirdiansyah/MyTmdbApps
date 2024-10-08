@@ -1,5 +1,6 @@
 package com.frbiw.core.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.WebChromeClient
@@ -32,6 +33,7 @@ class MovieTrailerAdapter(private val onItemClickListener: (MovieTrailer) -> Uni
     inner class MovieTrailerViewHolder(
         private val binding: ItemTrailerMovieBinding
     ) : RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetJavaScriptEnabled")
         fun bind(result: MovieTrailer) {
             binding.apply {
                 wvTrailer.apply {

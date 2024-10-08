@@ -1,6 +1,6 @@
 package com.frbiw.favorite.ui
 
-import androidx.lifecycle.ViewModelProvider
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,15 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.frbiw.core.ui.FavoriteAdapter
-import com.frbiw.favorite.R
 import com.frbiw.favorite.databinding.FragmentFavoriteBinding
 import com.frbiw.favorite.di.DaggerFavoriteComponent
 import com.frbiw.mytmdbapps.di.FavoriteModule
 import com.frbiw.mytmdbapps.ui.detail.DetailFragment
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 
